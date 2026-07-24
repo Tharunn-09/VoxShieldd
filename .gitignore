@@ -1,0 +1,8 @@
+node_modules/
+.env
+temp_uploads/
+*.log
+__pycache__/
+*.pyc
+.claude/
+.kombai/

@@ -1,0 +1,18 @@
+# ── Core Audio Processing ──────────────────────────────
+numpy
+librosa
+soundfile
+scipy
+scikit-learn
+
+# ── TTS & Audio Generation (All Compatible) ───────────
+gTTS          # ✅ Already installed - Human-like voice
+pydub         # ✅ Already installed - Audio conversion
+pyttsx3       # ✅ Already installed - Offline robotic voice
+pywin32       # ✅ Already installed - Windows support
+
+# ── Audio Playback (Optional) ─────────────────────────
+# sounddevice  # For live mic input later
+
+# ── NOT COMPATIBLE with Python 3.12 ──────────────────
+# TTS          # ❌ Remove this - Coqui TTS broken on 3.12
