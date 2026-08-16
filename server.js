@@ -1100,6 +1100,11 @@ const server = http.createServer(async (req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`VoxShield proxy server running at http://localhost:${PORT}`);
-});
+if (require.main === module || !process.env.VERCEL) {
+  server.listen(PORT, () => {
+    console.log(`VoxShield proxy server running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = server;
+
