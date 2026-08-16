@@ -171,7 +171,8 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon'
 };
 
-const server = http.createServer(async (req, res) => {
+// Handle request logic extracted into a handler function
+const handleRequest = async (req, res) => {
   console.log(`[REQUEST] ${req.method} ${req.url}`);
   // Secure User Registration Init (OTP generation and hashing)
   if (req.method === 'POST' && req.url === '/api/auth/register-init') {
@@ -1098,7 +1099,9 @@ const server = http.createServer(async (req, res) => {
       res.end(content, 'utf-8');
     }
   });
-});
+};
+
+const server = http.createServer(handleRequest);
 
 if (require.main === module || !process.env.VERCEL) {
   server.listen(PORT, () => {
@@ -1106,5 +1109,5 @@ if (require.main === module || !process.env.VERCEL) {
   });
 }
 
-module.exports = server;
+module.exports = handleRequest;
 
